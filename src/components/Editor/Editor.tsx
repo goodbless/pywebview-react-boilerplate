@@ -3,7 +3,7 @@ import * as React from 'react'
 import './Editor.sass'
 
 
-export default function Header() {
+export default function Editor() {
   const [content, saveContent] =
     React.useState('Using Python as backend, you can perform operations that are not allowed in Javascript, for example disk access. Click button below to save this content to hard drive.')
 
