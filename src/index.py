@@ -1,7 +1,7 @@
 import os
 import threading
 import webview
-
+from webview import FileDialog 
 from time import time
 
 
@@ -10,11 +10,11 @@ class Api:
         webview.windows[0].toggle_fullscreen()
 
     def save_content(self, content):
-        filename = webview.windows[0].create_file_dialog(webview.SAVE_DIALOG)
-        if not filename:
+        filename = webview.windows[0].create_file_dialog(FileDialog.SAVE)
+        if not filename or filename.count == 0:
             return
 
-        with open(filename, 'w') as f:
+        with open(filename[0], 'w') as f:
             f.write(content)
 
     def ls(self):
