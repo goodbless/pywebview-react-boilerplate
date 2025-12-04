@@ -8,16 +8,26 @@ import {
   applyEdgeChanges,
   applyNodeChanges
 } from '@xyflow/react';
+import TextUpdaterNode from './react-flow/custom-nodes/TextUpdaterNode';
+import { CustomEdge } from './react-flow/custom-edges/CustomEdges';
 import '@xyflow/react/dist/style.css';
 import { useCallback, useState } from 'react';
 import './app.css';
+
+const nodeTypes = {
+  textUpdater: TextUpdaterNode,
+};
+
+const edgeTypes = {
+  'custom-edge': CustomEdge,
+};
 
 const initialNodes = [
   {
     id: '1',
     type: 'input',
     data: { label: 'Input Node' },
-    position: { x: 250, y: 25 },
+    position: { x: 250, y: -75 },
     style: { backgroundColor: '#6ede87', color: 'white' },
   },
  
@@ -35,10 +45,18 @@ const initialNodes = [
     position: { x: 250, y: 250 },
     style: { backgroundColor: '#6865A5', color: 'white' },
   },
+  {
+    id: '4',
+    type: 'textUpdater',
+    position: { x: 250, y: 25 },
+    data: { value: 456 },
+  },
 ];
 const initialEdges = [
-  { id: 'e1-2', source: '1', target: '2' },
+  { id: 'e1-2', source: '1', target: '4', type: 'custom-edge'},
   { id: 'e2-3', source: '2', target: '3', animated: true },
+  { id: 'e4-2', source: '4', target: '2', sourceHandle: 'a' },
+  { id: 'e4-3', source: '4', target: '3', sourceHandle: 'b' }
 ];
 
 const nodeColor = (node) => {
@@ -66,8 +84,11 @@ export default function App() {
     [],
   );
   const onConnect = useCallback(
-    (params) => setEdges((edgesSnapshot) => addEdge(params, edgesSnapshot)),
-    [],
+    (params) => {
+      const edge = { ...params, type: 'custom-edge' };
+      setEdges((edgesSnapshot) => addEdge(edge, edgesSnapshot))
+    },
+    [setEdges],
   );
 
   return (
@@ -75,6 +96,8 @@ export default function App() {
       <ReactFlow
         nodes={nodes}
         edges={edges}
+        nodeTypes={nodeTypes}
+        edgeTypes={edgeTypes}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
