@@ -1,12 +1,20 @@
 #app {
   width: 100vw;
   height: 100vh;
+  background-color: #1a1a1a;
 }
- 
+
+/* React Flow dark theme */
+.react-flow {
+  background-color: #1a1a1a;
+}
+
 .react-flow__panel {
   padding: 5px 10px;
-  background: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  background: #2a2a2a;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px 0px, rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+  border: 1px solid #3a3a3a;
+  color: #e0e0e0;
 }
 
 .react-flow__attribution {
@@ -14,16 +22,78 @@
   visibility: hidden;
 }
 
+.react-flow__edge-path {
+  stroke: #888888;
+  stroke-width: 1;
+}
+
+.react-flow__edge.selected .react-flow__edge-path,
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: #4abf8a;
+  stroke-width: 3;
+}
+
+.react-flow__controls {
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+}
+
+.react-flow__controls-button {
+  background: #2a2a2a;
+  border-color: #3a3a3a;
+  fill: #e0e0e0;
+}
+
+.react-flow__controls-button:hover {
+  background: #3a3a3a;
+}
+
+.react-flow__minimap {
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+}
+
+.react-flow__background {
+  background-color: #1a1a1a;
+}
+
+.react-flow__handle {
+  background: #4abf8a;
+  border: 2px solid #2a2a2a;
+}
+
+/* Group node styling */
+.react-flow__node.group {
+  background-color: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+}
+
 .text-updater-node {
   height: 50px;
-  border: 1px solid #eee;
+  border: 1px solid #3a3a3a;
   padding: 5px;
   border-radius: 5px;
-  background: white;
+  background: #2a2a2a;
+  color: #e0e0e0;
 }
- 
+
 .text-updater-node label {
   display: block;
-  color: #777;
+  color: #b0b0b0;
   font-size: 12px;
+}
+
+/* Input field dark theme */
+.text-updater-node input {
+  background-color: #1a1a1a;
+  border: 1px solid #3a3a3a;
+  color: #e0e0e0;
+  padding: 4px 8px;
+  border-radius: 3px;
+  outline: none;
+}
+
+.text-updater-node input:focus {
+  border-color: #4abf8a;
 }
