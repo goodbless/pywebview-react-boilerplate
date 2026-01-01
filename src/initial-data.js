@@ -4,7 +4,7 @@ export const initialNodes = [
   {
     id: 'g1',
     type: 'group',
-    data: { label: null },
+    data: {},
     position: { x: 0, y: 80 },
     style: {
       width: 420,
@@ -42,11 +42,18 @@ export const initialNodes = [
     parentId: 'g1',
     extent: 'parent'
   },
+  {
+    id: 'n5',
+    type: 'colorChooser',
+    data: { color: '#4FD1C5' },
+    position: { x: 250, y: 25 },
+  }
 ];
 export const initialEdges = [
   { id: 'e1-2', source: 'n1', target: 'n2', type: 'custom-edge'},
   { id: 'e1-4', source: 'n1', target: 'n4', type: 'custom-edge'},
   { id: 'e2-3', source: 'n2', target: 'n3', animated: true },
   { id: 'e4-2', source: 'n4', target: 'n2', sourceHandle: 'a' },
-  { id: 'e4-3', source: 'n4', target: 'n3', sourceHandle: 'b' }
+  { id: 'e4-3', source: 'n4', target: 'n3', sourceHandle: 'b' },
+  { id: 'e4-5', source: 'n4', target: 'n5', sourceHandle: 'b' },
 ];

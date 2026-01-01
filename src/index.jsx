@@ -1,8 +1,7 @@
 
 import { createRoot } from 'react-dom/client'
 import reportWebVitals from './reportWebVitals';
-// import App from './App';
-import App from './zustandApp'
+import App from './app'
 import './index.sass'
 
 

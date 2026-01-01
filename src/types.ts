@@ -14,7 +14,14 @@ export type ColorNode = Node<
   'colorChooser'
 >;
 
-export type AppNode = ColorNode | BuiltInNode;
+export type TextUpdateNode = Node<
+  {
+    value: number;
+  },
+  'textUpdater'
+>;
+
+export type AppNode = ColorNode | TextUpdateNode | BuiltInNode;
 
 export type AppState = {
   nodes: AppNode[];

@@ -3,13 +3,24 @@ import { useShallow } from 'zustand/react/shallow';
 import { ReactFlow } from '@xyflow/react';
 
 import '@xyflow/react/dist/style.css';
+import './app.css';
 
 import useStore from './store';
 import ColorChooserNode from './react-flow/custom-nodes/ColorChooserNode';
 import { AppState } from './types';
 
-const nodeTypes = { colorChooser: ColorChooserNode };
+import TextUpdaterNode from './react-flow/custom-nodes/TextUpdaterNode';
+import { CustomEdge } from './react-flow/custom-edges/CustomEdges';
 
+
+const nodeTypes = {
+  textUpdater: TextUpdaterNode,
+  colorChooser: ColorChooserNode
+};
+
+const edgeTypes = {
+  'custom-edge': CustomEdge,
+};
 const selector = (state: AppState) => ({
   nodes: state.nodes,
   edges: state.edges,
