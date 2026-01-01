@@ -11,6 +11,7 @@ import { AppState } from './types';
 
 import TextUpdaterNode from './react-flow/custom-nodes/TextUpdaterNode';
 import { CustomEdge } from './react-flow/custom-edges/CustomEdges';
+import MenuBar from './components/MenuBar/MenuBar';
 
 
 const nodeTypes = {
@@ -35,7 +36,9 @@ function Flow() {
   );
 
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+      <MenuBar />
+      <div style={{ flex: 1 }}>
         <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -43,8 +46,10 @@ function Flow() {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         nodeTypes={nodeTypes}
+        edgeTypes={edgeTypes}
         fitView
         />
+      </div>
     </div>
   );
 }

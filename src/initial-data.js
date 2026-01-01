@@ -22,7 +22,7 @@ export const initialNodes = [
   {
     id: 'n2',
     // you can also pass a React component as a label
-    data: { label: <div>Default Node</div> },
+    data: { label: 'Default Node' },
     position: { x: 10, y: 100 },
     style: { backgroundColor: '#ff0072', color: 'white' },
     parentId: 'g1',
